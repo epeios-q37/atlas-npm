@@ -1,13 +1,13 @@
 {
-  "name": "atlas-node",
-  "version": "0.0.1",
+  "name": "atlastk",
+  "version": "0.0.2",
   "author": "Claude SIMON (http://q37.info/contact/)",
   "description": "Toolkit for developing user interfaces with Node.js",
   "main": "Atlas.js",
   "dependencies": {
     "xdhqxdh": "2018.3.19",
     "xdhqnjs": "2018.2.27",
-    "xdhelcq": "2018.3.10",
+    "xdhelcq": "2018.3.12",
     "xdhwebq": "2018.2.28"
   },
   "devDependencies": {},
