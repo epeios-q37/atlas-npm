@@ -27,33 +27,7 @@ var xdhelcqPath = "";
 var xdhelcqBin = "";
 var electronBin = "";
 
-function isDev() {
-	if (process.env.EPEIOS_SRC)
-		return true;
-	else
-		return false;
-}
-
-function getEpeiosPath() {
-	if (isDev) {
-		if (process.platform == 'win32') {
-			return "h:/hg/epeios/"
-		} else {
-			return "~/hg/epeios/"
-		}
-	} else
-		throw "Error !";
-}
-
-function getRealDir(dir) {
-	if (isDev()) {
-		let epeiosPath = getEpeiosPath();
-		return path.resolve(epeiosPath, "tools/xdhq/examples/common/", path.relative(path.resolve(epeiosPath, "tools/xdhq/examples/NJS/"), path.resolve(dir)));	// No final '/'.
-	} else
-		return path.resolve(dir);
-}
-
-if (isDev()) {
+if (process.env.EPEIOS_SRC) {
 	let epeiosToolsPath = "";
 	let binPath = "";
 	if (process.platform == 'win32') {
@@ -71,80 +45,123 @@ if (isDev()) {
 	electronBin = xdhelcqPath + "node_modules/electron/dist/electron";
 } else {
 	xdhqId = "xdhqnjs";
+	/*
 	xdhwebqId = "xdhwebq";
 	xdhelcqPath = path.dirname(require.resolve("xdhelcq"));
 	xdhelcqBin = require('xdhqxdh').fileName;
 	electronBin = require("xdhelcq").electron;
+	*/
 }
 
 const xdhq = require(xdhqId);
+
+const modes = xdhq.modes;
 
 function launchWeb(dir) {
 	require('child_process').fork(require(xdhwebqId).fileName, [dir]);
 }
 
-function launchDesktop(dir) {
-	require('child_process').spawn(electronBin, [path.join(xdhelcqPath, "index.js"), "-m=" + xdhelcqBin, dir]).on('close', function (code) {
-		process.exit(code)
-	});
+function launchDesktop(dir,prod) {
+	if (prod) {
+		require('child_process').spawn(electronBin, [path.join(xdhelcqPath, "index.js"), "-m=" + xdhelcqBin, dir]).on('close', function (code) {
+			process.exit(code)
+		});
+	} else
+		throw "DEMO mode not available with desktop interface !!!";
 }
 
-const types = {
+const guis = {
+	NONE: 0,
 	DESKTOP: 1,
 	WEB: 2,
 	DESKTOP_AND_WEB: 3
 }
 
-module.exports.types = types;
+module.exports.guis = guis;
 
-const defaultType = types.DESKTOP;
+var mode;
+var defaultGUI;
 
-function launch(callback, action, type) {
-	var dir = getRealDir(path.dirname(process.argv[1]));
+if (xdhq.isDev()) {
+	mode = modes.PROD;
+	defaultGUI = guis.DESKTOP;
+} else {
+	mode = modes.DEMO;
+	defaultGUI = guis.NONE;
+}
 
-	if (type === undefined) {
-		if (process.argv.length > 2) {
-			switch (process.argv[2]) {
+function launch(createCallback, newSessionAction, callbacks, gui) {
+	var dir = xdhq.getAssetDir();
+	var arg = "";
+	var prod = false;
+
+	if ( process.argv.length > 2)
+		arg = process.argv[2];
+
+	if (gui === undefined) {
+		if (arg!="") {
+			mode = modes.PROD;
+			switch (arg) {
+				case "n":
+				case "none":
+					gui = guis.NONE;
+					break;
 				case "d":
 				case "desktop":
-					type = types.DESKTOP;
+					gui = guis.DESKTOP;
 					break;
-				case "web":
+				case "W":
+					mode = modes.DEMO;
 				case "w":
-					type = types.WEB;
+				case "web":
+					gui = guis.WEB;
 					break;
 				case "dw":
 				case "wd":
-					type = types.DESKTOP_AND_WEB;
+					gui = guis.DESKTOP_AND_WEB;
 					break;
 				default:
-					throw ("Unknown type !");
+					throw ("Unknown gui !");
 					break;
 			}
 		} else
-			type = defaultType;
+			gui = defaultGUI;
 	}
 
-	xdhq.launch(callback, action);
+	prod = mode == modes.PROD;
 
-	switch (type) {
-		case types.DESKTOP:
-			launchDesktop(dir);
+	var url = "";
+
+	if (!prod)
+		url = "http://localhost:8080";
+
+	xdhq.launch(createCallback, newSessionAction, callbacks, mode, url);
+
+	module.exports.mode = mode;
+
+
+	switch (gui) {
+		case guis.NONE:
 			break;
-		case types.WEB:
+		case guis.DESKTOP:
+			launchDesktop(dir,prod);
+			break;
+		case guis.WEB:
 			launchWeb(dir);
 			break;
-		case types.DESKTOP_AND_WEB:
-			launchDesktop(dir);
+		case guis.DESKTOP_AND_WEB:
+			launchDesktop(dir,prod);
 			launchWeb(dir);
 			break;
 		default:
-			throw ("Unknown type !");
+			throw ("Unknown gui !");
 			break;
 	}
 }
 
-module.exports.register = xdhq.register;
 module.exports.launch = launch;
-module.exports.Tree = xdhq.Tree;
+module.exports.createTree = () => require('xmlbuilder').create('XDHTML');
 module.exports.DOM = xdhq.XDH;
+
+module.exports.readAsset = xdhq.readAsset;
+module.exports.modes = modes;
