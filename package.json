@@ -1,6 +1,6 @@
 {
   "name": "atlastk",
-  "version": "0.1.9-c",
+  "version": "0.1.9",
   "author": "Claude SIMON (http://q37.info/contact/)",
   "description": "Toolkit for developing web and desktop user interfaces with Node.js",
   "main": "Atlas.js",
