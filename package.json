@@ -1,11 +1,11 @@
 {
   "name": "atlastk",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Claude SIMON (http://q37.info/contact/)",
-  "description": "Toolkit for developing web and desktop user interfaces with Node.js",
+  "description": "Toolkit for prototyping web applications",
   "main": "Atlas.js",
   "dependencies": {
-    "xdhqnjs": "2018.8.17"
+    "xdhqnjs": "2018.10.7"
   },
   "devDependencies": {},
   "scripts": {},
@@ -18,9 +18,9 @@
     "XDHTML",
     "Atlas",
     "web",
-    "desktop",
     "interface",
-    "frontend",
+    "front-end",
+    "prototyping",
     "q37",
     "epeios"
   ],

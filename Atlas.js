@@ -91,7 +91,16 @@ if (xdhq.isDev()) {
 	defaultGUI = guis.NONE;
 }
 
-function launch(createCallback, newSessionAction, callbacks, gui) {
+if (process.argv.length > 2)
+	if ( process.argv[2] == "W" )
+		mode = modes.DEMO;
+	else
+		mode = modes.PROD;
+		
+
+module.exports.mode = mode;
+
+function launch(createCallback, newSessionAction, callbacks, head, gui) {
 	var dir = xdhq.getAssetDir();
 	var arg = "";
 	var prod = false;
@@ -100,8 +109,7 @@ function launch(createCallback, newSessionAction, callbacks, gui) {
 		arg = process.argv[2];
 
 	if (gui === undefined) {
-		if (arg!="") {
-			mode = modes.PROD;
+		if (arg != "") {
 			switch (arg) {
 				case "n":
 				case "none":
@@ -112,7 +120,6 @@ function launch(createCallback, newSessionAction, callbacks, gui) {
 					gui = guis.DESKTOP;
 					break;
 				case "W":
-					mode = modes.DEMO;
 					gui = guis.NONE;
 					break;
 				case "w":
@@ -133,10 +140,7 @@ function launch(createCallback, newSessionAction, callbacks, gui) {
 
 	prod = mode == modes.PROD;
 
-	xdhq.launch(createCallback, newSessionAction, callbacks, mode);
-
-	module.exports.mode = mode;
-
+	xdhq.launch(createCallback, newSessionAction, callbacks, head, mode);
 
 	switch (gui) {
 		case guis.NONE:
