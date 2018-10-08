@@ -1,15 +1,23 @@
-# Binding for *Node.js* of the *Atlas* toolkit
+/*
+	Copyright (C) 2018 Claude SIMON (http://q37.info/contact/).
 
-![Node.js logo](https://q37.info/download/assets/Node.png "Node.js")
+	This file is part of XDHq.
 
-The [*Atlas* toolkit](https://atlastk.org/) is a library which facilitates the prototyping of web applications.
+	XDHq is free software: you can redistribute it and/or
+	modify it under the terms of the GNU Affero General Public License as
+	published by the Free Software Foundation, either version 3 of the
+	License, or (at your option) any later version.
 
-## *Hello, World!*
+	XDHq is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+	Affero General Public License for more details.
 
-[![Little demonstration](https://q37.info/download/Hello.gif "A basic example")](http://q37.info/s/atk/Hello/)
+	You should have received a copy of the GNU Affero General Public License
+	along with XDHq If not, see <http://www.gnu.org/licenses/>.
+*/
 
-```javascript
-const atlas = require( 'atlastk' );
+const atlas = require('atlastk@0.3.0');
 
 // Content of 'Head.html'.
 const head = `
@@ -62,18 +70,5 @@ const callbacks = {
 };
 
 atlas.launch(() => new atlas.DOM(), "Connect", callbacks, head);
-```
 
-- Launch `npm install atlastk`,
-- in the same directory, create a `Hello.js` file with above source code, or get it directly here: <https://q37.info/download/assets/Hello.js>,
-- launch `node Hello.js`,
-
-or go to <https://npm.runkit.com/atlastk>.
-
-## What's next ?
-
-Here's how the *Atlas* toolkit version of the [*TodoMVC*](http://todomvc.com/) application looks like: 
-
-[![TodoMVC](http://q37.info/download/TodoMVC.gif "The TodoMVC application made with the Atlas toolkit")](http://q37.info/s/atk/TodoMVC)
-
-The source code of this application and more information about the *Atlas* toolkit can be found at <http://atlastk.org/>.
+"The program will be stopped after a while due to a RunKit timeout."

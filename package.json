@@ -5,7 +5,7 @@
   "description": "Toolkit for prototyping web applications",
   "main": "Atlas.js",
   "dependencies": {
-    "xdhqnjs": "2018.10.7"
+    "xdhqnjs": "2018.10.8"
   },
   "devDependencies": {},
   "scripts": {},
