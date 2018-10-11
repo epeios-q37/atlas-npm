@@ -28,5 +28,6 @@
   "bugs": {
     "url": "https://github.com/epeios-q37/atlas-node/issues"
   },
+  "runkitExampleFilename": "runkit.js",
   "homepage": "https://github.com/epeios-q37/atlas-node#readme"
 }
