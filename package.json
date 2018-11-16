@@ -1,33 +1,18 @@
 {
-  "name": "atlastk",
-  "version": "0.5.0",
+  "name": "atlas-node",
+  "version": "2018.11.16",
   "author": "Claude SIMON (http://q37.info/contact/)",
-  "description": "Toolkit for prototyping web applications",
-  "main": "Atlas.js",
+  "description": "Atlas toolkit for Node.js",
   "dependencies": {
-    "xdhq": "2018.11.8"
+    "atlastk": "0.5.0"
   },
-  "devDependencies": {},
-  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/epeios-q37/atlas-node.git"
   },
-  "keywords": [
-    "addon",
-    "XDHTML",
-    "Atlas",
-    "web",
-    "interface",
-    "front-end",
-    "prototyping",
-    "q37",
-    "epeios"
-  ],
   "license": "AGPL-3.0",
   "bugs": {
     "url": "https://github.com/epeios-q37/atlas-node/issues"
   },
-  "homepage": "https://github.com/epeios-q37/atlas-node#readme",
-  "runkitExampleFilename": "runkit.js"
+  "homepage": "https://github.com/epeios-q37/atlas-node#readme"
 }
