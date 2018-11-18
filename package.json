@@ -1,11 +1,11 @@
 {
   "name": "atlastk",
-  "version": "0.5.0",
+  "version": "0.5.0a",
   "author": "Claude SIMON (http://q37.info/contact/)",
-  "description": "Toolkit for prototyping web applications",
+  "description": "Toolkit for handling web interfaces",
   "main": "Atlas.js",
   "dependencies": {
-    "xdhq": "2018.11.8"
+    "xdhq": "2018.11.17"
   },
   "devDependencies": {},
   "scripts": {},
@@ -20,7 +20,6 @@
     "web",
     "interface",
     "front-end",
-    "prototyping",
     "q37",
     "epeios"
   ],
