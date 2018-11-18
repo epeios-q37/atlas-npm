@@ -17,25 +17,7 @@
 	along with XDHq If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*
-	This is the one-file version, in which the content of
-	the 'Head.html' and the 'Main.html' files are embedded.
-*/
-
-var atlas;
-
-if (process.env.EPEIOS_SRC) {
-	let epeiosPath = "";
-
-	if (process.platform == 'win32')
-		epeiosPath = "h:/hg/epeios/"
-	else
-		epeiosPath = "~/hg/epeios/"
-
-	atlas = require(epeiosPath + "tools/xdhq/Atlas/NJS/Atlas.js");
-} else {
-	atlas = require('atlastk');
-}
+const atlas = require('atlastk@0.4.0');
 
 // Content of 'Head.html'.
 const head = `
@@ -92,3 +74,5 @@ const callbacks = {
 };
 
 atlas.launch(() => new atlas.DOM(), "Connect", callbacks, head);
+
+"The program will be stopped after a while due to a RunKit timeout."
