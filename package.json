@@ -1,6 +1,6 @@
 {
   "name": "atlastk",
-  "version": "0.5.0a",
+  "version": "0.5.0b",
   "author": "Claude SIMON (http://q37.info/contact/)",
   "description": "Toolkit for handling web interfaces",
   "main": "Atlas.js",
@@ -11,7 +11,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/epeios-q37/atlas-npm.git"
+    "url": "git+https://github.com/epeios-q37/atlas-node.git"
   },
   "keywords": [
     "addon",
@@ -25,8 +25,8 @@
   ],
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/epeios-q37/atlas-npm/issues"
+    "url": "https://github.com/epeios-q37/atlas-node/issues"
   },
-  "homepage": "https://github.com/epeios-q37/atlas-npm#readme",
+  "homepage": "https://github.com/epeios-q37/atlas-node#readme",
   "runkitExampleFilename": "runkit.js"
 }
