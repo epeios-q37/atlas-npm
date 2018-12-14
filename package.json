@@ -1,6 +1,6 @@
 {
   "name": "atlastk",
-  "version": "0.6",
+  "version": "0.6.0",
   "author": "Claude SIMON (http://q37.info/contact/)",
   "description": "Toolkit for handling web interfaces",
   "main": "Atlas.js",
