@@ -3,9 +3,26 @@
 - Common to **all** bindings,
 - does **not** concern the native code,
 
+## 2019-04-17
+
+- *Node.js*, *Python*
+  - switching to 0.8.0
+
+## 2019-04-16
+
+- *Node.js*, *Python*
+  - `setLayout(...)` accepts now an *XML* (from the *Atlas* toolkit) object in addition to *HTML* string.
+
+## 2019-04-03
+
+- *Ruby*:
+  - fixing issues occurring under *POSIX*,
+  - switching to version 0.7.1,
+
 ## 2019-03-04
 
 - one back-end now only opens one (multiplexed) connection to the proxy, instead of one per session,
+- switching to version 0.7,
 
 ## 2018-12-22
 
@@ -20,6 +37,7 @@
 - switching to version 0.6,
 
 ## 2018-12-11
+
 - removing the new session related stuff,
 
 ## 2018-12-07

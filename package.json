@@ -1,11 +1,11 @@
 {
   "name": "atlastk",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "author": "Claude SIMON (http://q37.info/contact/)",
   "description": "Toolkit for handling web interfaces",
   "main": "Atlas.js",
   "dependencies": {
-    "xdhq": "2019.3.5"
+    "xdhq": "2019.3.26"
   },
   "devDependencies": {},
   "scripts": {},
@@ -23,7 +23,7 @@
     "q37",
     "epeios"
   ],
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/epeios-q37/atlas-node/issues"
   },
