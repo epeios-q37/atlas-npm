@@ -1,11 +1,11 @@
 {
   "name": "atlastk",
-  "version": "0.9.2",
+  "version": "0.10.0",
   "author": "Claude SIMON (http://q37.info/contact/)",
   "description": "Toolkit for handling web interfaces",
   "main": "Atlas.js",
   "dependencies": {
-    "xdhq": "2019.5.9"
+    "xdhq": "2019.6.20"
   },
   "devDependencies": {},
   "scripts": {},
